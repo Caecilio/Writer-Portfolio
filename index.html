@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Immanuel Satrio - Writer & Content Creator Portfolio. Technical writing, content creation, and editorial articles.">
+    <title>Immanuel Satrio - Writer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5C4033;
+            --secondary-color: #8B7355;
+            --text-dark: #2C2C2C;
+            --text-light: #666666;
+            --bg-cream: #F5F3F0;
+            --bg-white: #FFFFFF;
+            --accent: #A0826D;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 3rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+        }
+
+        nav .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: 
+                linear-gradient(rgba(245, 243, 240, 0.85), rgba(245, 243, 240, 0.85)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23E8E6E1" width="1200" height="800"/><g fill-opacity="0.03"><circle fill="%235C4033" cx="200" cy="200" r="150"/><circle fill="%235C4033" cx="1000" cy="400" r="200"/><circle fill="%235C4033" cx="400" cy="600" r="100"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero .bio {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 650px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.8;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border: 1.5px solid var(--primary-color);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-links a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            font-style: italic;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: white;
+            border: 1px solid rgba(92, 64, 51, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .portfolio-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .view-all-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .view-all-link:hover {
+            color: var(--primary-color);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Article Cards */
+        .article-card {
+            background: white;
+            border: 1px solid rgba(92, 64, 51, 0.08);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .article-header {
+            padding: 2rem 2rem 0 2rem;
+        }
+
+        .article-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.4rem 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .article-body {
+            padding: 0 2rem;
+            flex-grow: 1;
+        }
+
+        .article-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-footer {
+            padding: 0 2rem 2rem 2rem;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 0.8rem;
+        }
+
+        .read-more::after {
+            content: '→';
+        }
+
+        /* Skills Section */
+        .skills-container {
+            background: white;
+            padding: 4rem 3rem;
+            border: 1px solid rgba(92, 64, 51, 0.1);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: var(--text-light);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(92, 64, 51, 0.05);
+            font-size: 0.95rem;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 6rem;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav .logo {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 3rem 1.5rem;
+            }
+
+            .portfolio-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Immanuel Satrio</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h1>IMMANUEL SATRIO</h1>
+            <p class="subtitle">Writer • Content Creator • Technical Communicator</p>
+            <p class="bio">
+                I am a writer and content creator with 2+ years of experience crafting compelling narratives across technical articles, social media content, and editorial pieces. I specialize in translating complex concepts into clear, engaging content for diverse audiences—in both English and Indonesian.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:wibowosatrio819@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/immanuelcaecilio" target="_blank">LinkedIn</a>
+                <a href="https://medium.com/@wibowoics1219" target="_blank">Medium</a>
+                <a href="https://suarasatrionews.blogspot.com" target="_blank">Blog</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">20+</span>
+                <span class="stat-label">Published Articles</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Content Pieces</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Conversions</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <div class="container" id="portfolio">
+        
+        <!-- Medium Portfolio -->
+        <section>
+            <div class="portfolio-header">
+                <h2>Technical Writing</h2>
+                <a href="https://medium.com/@wibowoics1219" target="_blank" class="view-all-link">View all on Medium →</a>
+            </div>
+            
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Technical</span>
+                        <h3 class="article-title">The Rise of Automation Testing</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">An in-depth analysis of automation testing frameworks, best practices, and industry trends shaping the future of software quality assurance.</p>
+                        <div class="article-meta">
+                            <span>Technical Analysis</span>
+                            <span>English</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://medium.com/@wibowoics1219" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Opinion</span>
+                        <h3 class="article-title">Why Manual QA Still Matters in the Age of Automation</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">Defending the importance of manual testing and human judgment in software quality—exploring why automation can't replace everything.</p>
+                        <div class="article-meta">
+                            <span>Thought Leadership</span>
+                            <span>English</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://medium.com/@wibowoics1219" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Technical</span>
+                        <h3 class="article-title">Memahami Pentingnya Usability Testing</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">Technical deep-dive into usability testing methodology and its critical role in digital product development.</p>
+                        <div class="article-meta">
+                            <span>Methodology</span>
+                            <span>Indonesian</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://medium.com/@wibowoics1219" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Design</span>
+                        <h3 class="article-title">Hubungan Harmonis antara UI dan UX</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">Exploring the harmonious relationship between UI and UX design principles in creating optimal product experiences.</p>
+                        <div class="article-meta">
+                            <span>UI/UX Design</span>
+                            <span>Indonesian</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://medium.com/@wibowoics1219" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Case Study</span>
+                        <h3 class="article-title">Google Maps: Match Between System and Real World</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">UX principle breakdown using Google Maps as a real-world example of matching system design with user mental models.</p>
+                        <div class="article-meta">
+                            <span>UX Principles</span>
+                            <span>English</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://medium.com/@wibowoics1219" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Blogspot Portfolio -->
+        <section style="margin-top: 6rem;">
+            <div class="portfolio-header">
+                <h2>Editorial Writing</h2>
+                <a href="https://suarasatrionews.blogspot.com" target="_blank" class="view-all-link">View all on Blog →</a>
+            </div>
+            
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Social Issues</span>
+                        <h3 class="article-title">Beribu Kata dalam Toleransi Beragama</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">Opinion piece on religious tolerance, exploring the ability to respect diverse spiritual values and practices in multicultural society.</p>
+                        <div class="article-meta">
+                            <span>Opinion</span>
+                            <span>Indonesian</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://suarasatrionews.blogspot.com/2022/08/beribu-kata-dalam-toleransi-beragama.html" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Current Events</span>
+                        <h3 class="article-title">Eksistensi Varian Omicron Di Indonesia</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">COVID-19 health analysis examining the Omicron variant's emergence in Indonesia and public health implications.</p>
+                        <div class="article-meta">
+                            <span>Health Analysis</span>
+                            <span>Indonesian</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://suarasatrionews.blogspot.com/2022/01/keberadaan-varian-omicron-di-indonesia.html" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Editorial</span>
+                        <h3 class="article-title">Teks Editorial: Penipuan di Era Digital</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">Editorial commentary on consumer fraud and digital security, analyzing modern scams and their implications.</p>
+                        <div class="article-meta">
+                            <span>Consumer Issues</span>
+                            <span>Indonesian</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://suarasatrionews.blogspot.com/2022/02/teks-editorial.html" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Environment</span>
+                        <h3 class="article-title">Kerusakan Hutan di Indonesia</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">Environmental editorial exploring forest destruction in Indonesia and the urgent need for conservation action.</p>
+                        <div class="article-meta">
+                            <span>Environment</span>
+                            <span>Indonesian</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://suarasatrionews.blogspot.com/2022/02/kerusakan-hutan.html" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Business</span>
+                        <h3 class="article-title">Developing Business in Digital Era</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">Entrepreneurship guide on developing and promoting businesses, leveraging social media for growth.</p>
+                        <div class="article-meta">
+                            <span>Business Strategy</span>
+                            <span>English</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://suarasatrionews.blogspot.com/2021/11/developing-our-business.html" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-badge">Education</span>
+                        <h3 class="article-title">Example of English Dialogue</h3>
+                    </div>
+                    <div class="article-body">
+                        <p class="article-description">Language education content demonstrating effective communication techniques and English as universal language.</p>
+                        <div class="article-meta">
+                            <span>Education</span>
+                            <span>English</span>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <a href="https://suarasatrionews.blogspot.com/2021/12/surat-lamaran.html" target="_blank" class="read-more">Read Article</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="container" id="skills">
+        <section>
+            <h2 class="section-title">Skills & Expertise</h2>
+            <p class="section-subtitle">Core competencies in writing, communication, and digital content creation</p>
+            
+            <div class="skills-container">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Writing & Content</h3>
+                        <ul class="skill-list">
+                            <li>Technical Writing</li>
+                            <li>Content Creation</li>
+                            <li>Copywriting</li>
+                            <li>Editorial Writing</li>
+                            <li>Social Media Content</li>
+                            <li>Blog Writing</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Communication</h3>
+                        <ul class="skill-list">
+                            <li>Public Relations</li>
+                            <li>Stakeholder Communication</li>
+                            <li>Cross-Cultural Collaboration</li>
+                            <li>Presentation Skills</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <ul class="skill-list">
+                            <li>English (Professional)</li>
+                            <li>Indonesian (Native)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Digital Tools</h3>
+                        <ul class="skill-list">
+                            <li>Google Workspace</li>
+                            <li>Social Media Platforms</li>
+                            <li>Figma & Canva</li>
+                            <li>Google Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2026 Immanuel Caecilio Satrio Wibowo</p>
+        <p style="margin-top: 0.5rem;">Writer • Content Creator • Technical Communicator</p>
+    </footer>
+
+</body>
+</html>
